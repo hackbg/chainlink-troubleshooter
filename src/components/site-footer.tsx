@@ -15,13 +15,13 @@ export function SiteFooter() {
             >
               hackbg
             </a>
-            . Inspired by{' '}
+            . Bootstrapped with{' '}
             <a
-              href="https://ui.shadcn.com"
+              href="https://github.com/hackbg/web3-starter"
               target="_blank"
               className="font-medium underline underline-offset-4"
             >
-              shadcn/ui
+              Web3 Starter
             </a>
             . The source code is on{' '}
             <a

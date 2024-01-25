@@ -24,13 +24,13 @@ import {
   User,
   X,
   type LucideIcon,
-  ToyBrick,
+  SearchCheck,
 } from 'lucide-react'
 
 export type Icon = LucideIcon
 
 export const Icons = {
-  logo: ToyBrick,
+  logo: SearchCheck,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,

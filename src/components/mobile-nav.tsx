@@ -6,13 +6,11 @@ import { useRouter } from 'next/navigation'
 import { SidebarOpen } from 'lucide-react'
 
 import { siteConfig } from '@/config/site'
-import { demoConfig } from '@/config/demo'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Icons } from '@/components/icons'
-import { DemoSidebarNav } from '@/components/sidebar-nav'
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -40,18 +38,14 @@ export function MobileNav() {
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
             <MobileLink href="/" onOpenChange={setOpen}>
-              Home
+              Automation
             </MobileLink>
-            <MobileLink href="/#features" onOpenChange={setOpen}>
-              Features
+            <MobileLink href="#" onOpenChange={setOpen}>
+              VRF
             </MobileLink>
-            <MobileLink href="/demo" onOpenChange={setOpen}>
-              Demo
+            <MobileLink href="#" onOpenChange={setOpen}>
+              CCIP
             </MobileLink>
-            <DemoSidebarNav
-              items={demoConfig.sidebarNav}
-              onOpenChange={setOpen}
-            />
           </div>
         </ScrollArea>
       </SheetContent>

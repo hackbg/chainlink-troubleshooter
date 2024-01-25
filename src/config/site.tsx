@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: 'Web3 Starter',
+  name: 'Chainlink Troubleshooter',
   description:
-    'A starter kit for building dApps optimized for user and developer experience.',
+    'DevTool for finding and resolving common issues with Chainlink services like Automation, VRF, CCIP.',
   links: {
-    github: 'https://github.com/hackbg/web3-starter',
+    github: 'https://github.com/hackbg/chainlink-troubleshooter',
     x: 'https://x.com/hack_bg',
   },
 }

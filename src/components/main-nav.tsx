@@ -27,24 +27,19 @@ export function MainNav() {
             pathname === '/' ? 'text-foreground' : 'text-foreground/60',
           )}
         >
-          Home
+          Automation
         </Link>
         <Link
-          href="/#features"
+          href="#"
           className="text-foreground/60 transition-colors hover:text-foreground/80"
         >
-          Features
+          VRF
         </Link>
         <Link
-          href="/demo"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname.includes('demo')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
+          href="#"
+          className="text-foreground/60 transition-colors hover:text-foreground/80"
         >
-          Demo
+          CCIP
         </Link>
       </nav>
     </div>
