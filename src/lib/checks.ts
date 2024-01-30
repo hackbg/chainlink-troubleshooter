@@ -17,6 +17,7 @@ export const checkUpkeepFunction = async (
   })
 
   const upkeepContract = data.target
+  const upkeepCheckData = data.checkData
 
   let simulation
   try {
@@ -26,7 +27,7 @@ export const checkUpkeepFunction = async (
         'function checkUpkeep(bytes calldata checkData) external returns (bool upkeepNeeded, bytes memory performData)',
       ]),
       functionName: 'checkUpkeep',
-      args: ['0x'],
+      args: [upkeepCheckData],
     })
   } catch (e) {
     console.log(e) // TODO: extract error message
