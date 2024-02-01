@@ -8,8 +8,8 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/demo',
-        destination: '/demo/network',
+        source: '/',
+        destination: '/automation',
         permanent: true,
       },
     ]

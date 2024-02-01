@@ -21,17 +21,22 @@ export function MainNav() {
       </Link>
       <nav className="flex items-center space-x-6 text-sm font-medium">
         <Link
-          href="/"
+          href="/automation"
           className={cn(
             'transition-colors hover:text-foreground/80',
-            pathname === '/' ? 'text-foreground' : 'text-foreground/60',
+            pathname === '/automation'
+              ? 'text-foreground'
+              : 'text-foreground/60',
           )}
         >
           Automation
         </Link>
         <Link
-          href="#"
-          className="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="/vrf"
+          className={cn(
+            'transition-colors hover:text-foreground/80',
+            pathname === '/vrf' ? 'text-foreground' : 'text-foreground/60',
+          )}
         >
           VRF
         </Link>

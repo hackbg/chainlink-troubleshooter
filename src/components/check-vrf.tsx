@@ -12,7 +12,7 @@ import {
   TableBody,
   Table,
 } from '@/components/ui/table'
-import { checks } from '@/lib/checks/automation'
+import { checks } from '@/lib/checks/vrf'
 
 type CheckReport = {
   name: string
@@ -20,21 +20,24 @@ type CheckReport = {
   details: string
 }
 
-export function CheckUpkeep() {
+export function CheckVRF() {
   const { chain } = useNetwork()
-  const [upkeepId, setUpkeepId] = useState<string>('')
+  const [requestTxHash, setRequestTxHash] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [report, setReport] = useState<CheckReport[]>([])
 
   const runChecks = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!upkeepId) {
+    if (!requestTxHash) {
       return
     }
     setLoading(true)
     const report = await Promise.all(
       checks.map(async (check) => {
-        const result = await check.fn(upkeepId, chain?.rpcUrls.default.http[0])
+        const result = await check.fn(
+          requestTxHash,
+          chain?.rpcUrls.default.http[0],
+        )
         return { ...result, name: check.name }
       }),
     )
@@ -47,10 +50,10 @@ export function CheckUpkeep() {
       <form className="flex gap-4" onSubmit={runChecks}>
         <Input
           id="id"
-          placeholder="Enter Upkeep ID"
+          placeholder="Enter VRF Request Tx Hash"
           type="text"
-          value={upkeepId}
-          onChange={(e) => setUpkeepId(e.target.value)}
+          value={requestTxHash}
+          onChange={(e) => setRequestTxHash(e.target.value)}
         />
         <Button type="submit" className="w-1/4" disabled={loading}>
           {loading ? 'Running...' : 'Run Checks'}
