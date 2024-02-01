@@ -28,8 +28,8 @@ The troubleshooter is available [here](chainlink-troubleshooter.vercel.app) or c
 
 If you'd like to add a new check to the troubleshooter, you can submit an issue with a description or a PR with the following changes:
 
-1. Add a new function to `src/lib/checks.ts` by following the example of the other checks
-2. Export the function and add it to the `checks` array in `src/lib/checks.ts`
+1. Add a new function to `src/lib/checks/[service].ts` by following the example of the other checks
+2. Export the function and add it to the `checks` array
 3. Test your new check manually by running `pnpm run dev`
 
 ## Tech Stack
