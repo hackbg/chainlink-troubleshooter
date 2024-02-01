@@ -49,6 +49,7 @@ Until automated tests are added, you can manually test the troubleshooter by per
 
 - Consumer contract with all checks passing: `0x8888bbe4156c339af26902ef198e7c70863a59f9e0fca3cc7dc91c712270b108`
 - Reverting fulfill function: `0xb54351456875787f8d54b00c9100db54370fbdc52f9f81a4283b172a57fd2f39`
+- Consumer contract with low gas limit requested: `0x047174b294c9f6ae5d0786cdf9d0ba429b329de94a700dde216f4fc33577ee2c`
 
 ## Tech Stack
 
