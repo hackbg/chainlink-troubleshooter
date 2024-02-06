@@ -23,7 +23,7 @@ A DevTool for finding and resolving common issues with Chainlink services like A
 
 ## Usage
 
-The troubleshooter is available [here](chainlink-troubleshooter.vercel.app) or can be run locally by following the instructions below.
+The troubleshooter is available [here](https://chainlink-troubleshooter.vercel.app) or can be run locally by following the instructions below.
 
 ## Requirements
 
