@@ -43,7 +43,7 @@ export function MobileNav() {
             <MobileLink href="/vrf" onOpenChange={setOpen}>
               VRF
             </MobileLink>
-            <MobileLink href="#" onOpenChange={setOpen}>
+            <MobileLink href="/ccip" onOpenChange={setOpen}>
               CCIP
             </MobileLink>
           </div>

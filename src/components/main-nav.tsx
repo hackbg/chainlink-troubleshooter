@@ -41,8 +41,11 @@ export function MainNav() {
           VRF
         </Link>
         <Link
-          href="#"
-          className="text-foreground/60 transition-colors hover:text-foreground/80"
+          href="/ccip"
+          className={cn(
+            'transition-colors hover:text-foreground/80',
+            pathname === '/ccip' ? 'text-foreground' : 'text-foreground/60',
+          )}
         >
           CCIP
         </Link>
