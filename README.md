@@ -18,6 +18,9 @@ A DevTool for finding and resolving common issues with Chainlink services like A
     - [ ] Check if gas limit is sufficient
     - [ ] Check if transaction is funded
 - Troubleshoot CCIP
+  - [ ] Check if source chain selector is valid/supported
+  - [ ] Check if receiver contract reverts
+  - [ ] Check if gas limit is sufficient
 - Troubleshoot Data Streams
 - Troubleshoot Functions
 
