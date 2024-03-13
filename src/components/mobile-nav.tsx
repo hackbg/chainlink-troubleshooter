@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Icons } from '@/components/icons'
+import { Badge } from '@/components/ui/badge'
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -33,7 +34,8 @@ export function MobileNav() {
           onOpenChange={setOpen}
         >
           <Icons.logo className="mr-2 h-4 w-4" />
-          <span className="font-bold">{siteConfig.name}</span>
+          <span className="mr-2 font-bold">{siteConfig.name}</span>
+          <Badge variant="destructive">BETA</Badge>
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">

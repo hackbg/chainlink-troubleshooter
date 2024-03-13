@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import { Icons } from '@/components/icons'
+import { Badge } from '@/components/ui/badge'
 
 export function MainNav() {
   const pathname = usePathname()
@@ -18,6 +19,7 @@ export function MainNav() {
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
+        <Badge variant="destructive">BETA</Badge>
       </Link>
       <nav className="flex items-center space-x-6 text-sm font-medium">
         <Link
