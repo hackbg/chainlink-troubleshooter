@@ -1,5 +1,7 @@
 # Chainlink Services Troubleshooter
 
+> :warning: **Disclaimer**: This project is still in development and may not be fully functional yet. Please use with caution.
+
 A DevTool for finding and resolving common issues with Chainlink services like Automation, VRF, CCIP.
 
 ## Features
