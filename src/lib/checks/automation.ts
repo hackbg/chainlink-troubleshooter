@@ -1,21 +1,38 @@
 import { KeeperRegistryContractConfig } from '@/config/contracts'
-import { createPublicClient, http, parseAbi } from 'viem'
+import { Address, createPublicClient, http, parseAbi } from 'viem'
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts'
+
+type UpkeepConfigResponse = {
+  target: Address
+  checkData: `0x${string}`
+  performGas: number
+}
 
 export const checkUpkeepFunction = async (
   upkeepId: string,
+  networkId: string,
   rpcUrl: string | undefined,
 ) => {
   const client = createPublicClient({
     transport: http(rpcUrl),
   })
 
-  const data = await client.readContract({
-    address: KeeperRegistryContractConfig.address,
+  if (
+    !KeeperRegistryContractConfig.address ||
+    KeeperRegistryContractConfig.address[networkId] === undefined
+  ) {
+    return {
+      status: 'Fail',
+      details: 'Keeper registry contract not configured for this network',
+    }
+  }
+
+  const data = (await client.readContract({
+    address: KeeperRegistryContractConfig.address[networkId],
     abi: KeeperRegistryContractConfig.abi,
     functionName: 'getUpkeep',
     args: [BigInt(upkeepId)],
-  })
+  })) as UpkeepConfigResponse
 
   const upkeepContract = data.target
   const upkeepCheckData = data.checkData
@@ -49,19 +66,30 @@ export const checkUpkeepFunction = async (
 
 export const checkUpkeepPerfromFunction = async (
   upkeepId: string,
+  networkId: string,
   rpcUrl: string | undefined,
 ) => {
   const client = createPublicClient({
     transport: http(rpcUrl),
   })
 
+  if (
+    !KeeperRegistryContractConfig.address ||
+    KeeperRegistryContractConfig.address[networkId] === undefined
+  ) {
+    return {
+      status: 'Fail',
+      details: 'Keeper registry contract not configured for this network',
+    }
+  }
+
   // Get the target contract
   const data = await client.readContract({
-    address: KeeperRegistryContractConfig.address,
+    address: KeeperRegistryContractConfig.address[networkId],
     abi: KeeperRegistryContractConfig.abi,
     functionName: 'getUpkeep',
     args: [BigInt(upkeepId)],
-  })
+  }) as UpkeepConfigResponse
 
   const upkeepContract = data.target
   const upkeepCheckData = data.checkData
@@ -121,19 +149,30 @@ export const checkUpkeepPerfromFunction = async (
 
 export const checkUpkeepGasLimit = async (
   upkeepId: string,
+  networkId: string,
   rpcUrl: string | undefined,
 ) => {
   const client = createPublicClient({
     transport: http(rpcUrl),
   })
 
+  if (
+    !KeeperRegistryContractConfig.address ||
+    KeeperRegistryContractConfig.address[networkId] === undefined
+  ) {
+    return {
+      status: 'Fail',
+      details: 'Keeper registry contract not configured for this network',
+    }
+  }
+
   // Get the target contract
   const data = await client.readContract({
-    address: KeeperRegistryContractConfig.address,
+    address: KeeperRegistryContractConfig.address[networkId],
     abi: KeeperRegistryContractConfig.abi,
     functionName: 'getUpkeep',
     args: [BigInt(upkeepId)],
-  })
+  }) as UpkeepConfigResponse
 
   const upkeepContract = data.target
   const upkeepCheckData = data.checkData

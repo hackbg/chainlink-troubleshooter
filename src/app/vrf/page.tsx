@@ -3,10 +3,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/page-header'
-import { ClientOnly } from '@/components/client-only'
-import { Connected } from '@/components/connected'
 import { CheckVRF } from '@/components/check-vrf'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Page() {
   return (
@@ -19,11 +16,7 @@ export default function Page() {
           </PageHeaderDescription>
         </PageHeader>
         <div className="w-full max-w-2xl px-4">
-          <ClientOnly>
-            <Connected fallback={<ConnectButton />}>
-              <CheckVRF />
-            </Connected>
-          </ClientOnly>
+          <CheckVRF />
         </div>
       </section>
     </>

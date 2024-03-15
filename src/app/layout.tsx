@@ -1,5 +1,4 @@
 import '@/styles/globals.css'
-import '@rainbow-me/rainbowkit/styles.css'
 
 import { siteConfig } from '@/config/site'
 import { fontSans, fontHeading } from '@/lib/fonts'
@@ -22,7 +21,6 @@ export const metadata = {
     'Ethereum',
     'Web3',
     'dApp',
-    'wagmi',
   ],
   authors: [
     {

@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useNetwork } from 'wagmi'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,7 +11,9 @@ import {
   TableBody,
   Table,
 } from '@/components/ui/table'
+import { SelectNetwork } from '@/components/select-network'
 import { checks } from '@/lib/checks/vrf'
+import { networks } from '@/config/networks'
 
 type CheckReport = {
   name: string
@@ -21,23 +22,20 @@ type CheckReport = {
 }
 
 export function CheckVRF() {
-  const { chain } = useNetwork()
   const [requestTxHash, setRequestTxHash] = useState<string>('')
+  const [networkId, setNetworkId] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [report, setReport] = useState<CheckReport[]>([])
 
   const runChecks = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!requestTxHash) {
+    if (!requestTxHash || !networkId) {
       return
     }
     setLoading(true)
     const report = await Promise.all(
       checks.map(async (check) => {
-        const result = await check.fn(
-          requestTxHash,
-          chain?.rpcUrls.default.http[0],
-        )
+        const result = await check.fn(requestTxHash, networks[networkId].rpcUrl)
         return { ...result, name: check.name }
       }),
     )
@@ -55,7 +53,8 @@ export function CheckVRF() {
           value={requestTxHash}
           onChange={(e) => setRequestTxHash(e.target.value)}
         />
-        <Button type="submit" className="w-1/4" disabled={loading}>
+        <SelectNetwork onChange={setNetworkId} />
+        <Button type="submit" className="w-1/3" disabled={loading}>
           {loading ? 'Running...' : 'Run Checks'}
         </Button>
       </form>
