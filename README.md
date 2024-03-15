@@ -76,5 +76,4 @@ Until automated tests are added, you can manually test the troubleshooter by per
 ## Tech Stack
 
 - [viem](https://viem.sh/)
-- [wagmi](https://wagmi.sh/)
 - [Next.js](https://nextjs.org/)

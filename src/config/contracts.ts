@@ -1,5 +1,17 @@
-export const KeeperRegistryContractConfig = {
-  address: '0x86EFBD0b6736Bed994962f9797049422A3A8E8Ad',
+import { Abi, Address } from 'viem'
+
+export type ContractConfig = {
+  address?: Record<string, Address>
+  abi: Abi
+}
+
+export const KeeperRegistryContractConfig: ContractConfig = {
+  address: {
+    ethMainnet: '0x6593c7De001fC8542bB1703532EE1E5aA0D458fD',
+    ethSepolia: '0x86EFBD0b6736Bed994962f9797049422A3A8E8Ad',
+    polygonMainnet: '0x08a8eea76D2395807Ce7D1FC942382515469cCA1',
+    polygonMumbai: '0xf97C091179A4A4d666da7a2764dDeD4F932FC14A',
+  },
   abi: [
     {
       inputs: [
@@ -1140,7 +1152,7 @@ export const KeeperRegistryContractConfig = {
   ],
 } as const
 
-export const EVM2EVMOnRampContractConfig = {
+export const EVM2EVMOnRampContractConfig: ContractConfig = {
   abi: [
     {
       inputs: [
@@ -2198,9 +2210,9 @@ export const EVM2EVMOnRampContractConfig = {
       type: 'function',
     },
   ],
-}
+} as const
 
-export const CCIPRouterContractConfig = {
+export const CCIPRouterContractConfig: ContractConfig = {
   abi: [
     {
       inputs: [
@@ -2635,9 +2647,9 @@ export const CCIPRouterContractConfig = {
       type: 'function',
     },
   ],
-}
+} as const
 
-export const LinkTokenContractConfig = {
+export const LinkTokenContractConfig: ContractConfig = {
   abi: [
     { inputs: [], stateMutability: 'nonpayable', type: 'constructor' },
     {
@@ -2841,4 +2853,4 @@ export const LinkTokenContractConfig = {
       type: 'function',
     },
   ],
-}
+} as const
