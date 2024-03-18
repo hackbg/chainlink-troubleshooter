@@ -35,7 +35,11 @@ export function CheckCCIP() {
     setLoading(true)
     const report = await Promise.all(
       checks.map(async (check) => {
-        const result = await check.fn(requestTxHash, networks[networkId].rpcUrl)
+        const result = await check.fn(
+          requestTxHash,
+          networkId,
+          networks[networkId].rpcUrl,
+        )
         return { ...result, name: check.name }
       }),
     )
