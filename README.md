@@ -20,7 +20,7 @@ A DevTool for finding and resolving common issues with Chainlink services like A
     - [ ] Check if gas limit is sufficient
     - [ ] Check if transaction is funded
 - Troubleshoot CCIP
-  - [ ] Check if source chain selector is valid/supported
+  - [x] Check if destination chain selector is valid/supported
   - [ ] Check if receiver contract reverts
   - [ ] Check if gas limit is sufficient
 - Troubleshoot Data Streams
@@ -71,6 +71,13 @@ Until automated tests are added, you can manually test the troubleshooter by per
 - All checks passing: `0x8888bbe4156c339af26902ef198e7c70863a59f9e0fca3cc7dc91c712270b108`
 - Reverting fulfill function: `0xb54351456875787f8d54b00c9100db54370fbdc52f9f81a4283b172a57fd2f39`
 - Low gas limit: `0x047174b294c9f6ae5d0786cdf9d0ba429b329de94a700dde216f4fc33577ee2c`
+</details>
+
+<details>
+  <summary>CCIP</summary>
+
+- All checks passing: `0xe064264541cb88afdd4cd8354a0c144a59cee4e51f2cf4cbb916d6388f180a1b`
+- Unsupported destination chain selector: `0x939400bdf91b9824246384c6d3153db6d02df4a719e977398b500a2e0fd9249f`
 </details>
 
 ## Tech Stack
