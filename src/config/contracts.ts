@@ -10,7 +10,6 @@ export const KeeperRegistryContractConfig: ContractConfig = {
     ethMainnet: '0x6593c7De001fC8542bB1703532EE1E5aA0D458fD',
     ethSepolia: '0x86EFBD0b6736Bed994962f9797049422A3A8E8Ad',
     polygonMainnet: '0x08a8eea76D2395807Ce7D1FC942382515469cCA1',
-    polygonMumbai: '0xf97C091179A4A4d666da7a2764dDeD4F932FC14A',
   },
   abi: [
     {

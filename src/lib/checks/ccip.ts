@@ -2,7 +2,6 @@ import { createPublicClient, decodeEventLog, http, parseAbi } from 'viem'
 
 const supportedDestinationChains: Record<string, string[]> = {
   ethSepolia: [
-    '12532609583862916517', // Polygon Mumbai
     '5224473277236331295', // Optimism Sepolia
     '3478487238524512106', // Arbitrum Sepolia
     '14767482510784806043', // Fuji Testnet
